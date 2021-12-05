@@ -3,4 +3,7 @@
   text-align: center;
   outline: 10px black solid;
   width: auto;
+  background-color: black;
+  color: white;
+  z-index: 50;
 }
