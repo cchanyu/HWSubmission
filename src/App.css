@@ -1,9 +1,16 @@
 .App {
   display: flex;
+  
   text-align: center;
-  outline: 10px black solid;
   width: auto;
+  height: 70vh;
+  
   background-color: black;
   color: white;
+
   z-index: 50;
+}
+
+.invisFooter {
+  height: 30vh;
 }

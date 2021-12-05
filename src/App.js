@@ -1,10 +1,12 @@
 import React from 'react'
+import { Routes, Route } from 'react-router-dom';
+
 import HomeScreen from './components/HomeScreen.js';
 import AboutMe from './components/AboutMe.js';
 import Projects from './components/Projects.js';
 import ContactMe from './components/ContactMe.js';
 import Footer from './components/Footer.js';
-import { Routes, Route } from 'react-router-dom'
+
 import Snowfall from 'react-snowfall';
 import './App.css';
 

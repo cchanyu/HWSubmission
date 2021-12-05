@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="footer">
             <div className="footer--inside">
                 {/* Navigation */}
-                <nav>
+                <nav className="nav">
                 <NavLink to="/">HomeScreen</NavLink>
 
                 <NavLink to="/about">AboutMe</NavLink>
