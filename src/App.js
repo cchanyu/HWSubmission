@@ -13,7 +13,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-        <Snowfall />
+        <Snowfall className="snowfall" />
         {/* React Route */}
         <Routes>
           <Route exact path="/" element={<HomeScreen />}/>

@@ -7,7 +7,8 @@ class HomeScreen extends React.Component {
         this.state={
             anime: '',
             character: '',
-            quote: ''
+            quote: '',
+            quote2: []
         }
     }
 
@@ -19,13 +20,28 @@ class HomeScreen extends React.Component {
                 character: quote.character,
                 quote: quote.quote
             }))
+        fetch('http://localhost:5000/api/quote', {
+            method: "GET",
+            headers: { 
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        })
+            .then(res2 => res2.json())
+            .then(quote2 => this.setState({quote2}))
     }
 
     render(){
-        const { anime, character, quote } = this.state;
+        const { anime, character, quote, quote2 } = this.state;
         return(
             <div>
+                <div>{anime} - {character}</div>
                 <div>{quote}</div>
+                <ul>
+                    {quote2.map((quote, index) => {
+                        return <li key={index}>{quote}</li>
+                    })}
+                </ul>
             </div>
         )
     }
