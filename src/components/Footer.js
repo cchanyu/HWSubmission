@@ -1,22 +1,24 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom'
 import '../css/Footer.css'
 
-class Footer extends React.Component {
-    constructor(){
-        super()
-        this.state={}
-    }
+const Footer = () => {
+    return(
+        <div className="footer">
+            <div className="footer--inside">
+                {/* Navigation */}
+                <nav>
+                <NavLink to="/">HomeScreen</NavLink>
 
-    render(){
-        return(
-            <div className="footer">
-                <div className="footer--inside">
-                    Footer
-                </div>
+                <NavLink to="/about">AboutMe</NavLink>
+
+                <NavLink to="/projects">Projects</NavLink>
+                
+                <NavLink to="/contact">ContactMe</NavLink>
+                </nav>
             </div>
-        )
-    }
-
+        </div>
+    )
 }
 
 export default Footer;
