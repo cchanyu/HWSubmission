@@ -1,6 +1,7 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { server } from './redux/configs/index';
 
 import Home from './components/Home.js';
 import Giphy from './components/Giphy.js';
@@ -28,7 +29,7 @@ class App extends React.Component {
     fetch('https://animechan.vercel.app/api/random')
       .then(res => res.json())
       .then(quote => this.setState({ random: quote }))
-    fetch('http://localhost:5000/api/quote')
+    fetch(`${server}/api/quote`)
       .then(res2 => res2.json())
       .then(saved => this.setState({ saved }))
   }
@@ -37,7 +38,7 @@ class App extends React.Component {
     e.preventDefault();
     const { text } = this.props;
     const newText = text.toUpperCase();
-    fetch(`http://api.giphy.com/v1/gifs/search?q=${newText}&api_key=${API}`)
+    fetch(`https://api.giphy.com/v1/gifs/search?q=${newText}&api_key=${API}`)
       .then(res3 => res3.json())
       .then(data => this.setState({ url: data.data }))
   }
