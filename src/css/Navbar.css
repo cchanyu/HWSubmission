@@ -1,0 +1,110 @@
+.footer {
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    background-color: black;
+    width: 100vw;
+    height: 20vh;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.footer--under {
+    width: 150%;
+    height: 150%;
+    background-color: white;
+    border-radius: 100%;
+    left: -25%;
+    right: 0;
+    position: absolute;
+    z-index: 0;
+}
+
+.footer--inside {
+    width: 80vw !important;
+    height: 20vh !important;
+    margin: auto;
+
+    display: flex;
+    justify-content: space-between;
+    z-index: 1;
+}
+
+.searchbox {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    z-index: 1;
+}
+
+.input {
+    width: 20vw !important;
+    height: 5vh !important;
+    background-color: white !important;
+    margin-bottom: auto !important;
+    margin-right: 5px;
+    z-index: 1
+}
+
+.icon {
+    height: 5vh;
+    width: 50px;
+    background-color: green;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.icon:visited, .icon:focus {
+    color: white;
+    background-color: green;
+    border: green 1px solid;
+}
+
+.icon:hover {
+    background-color: lime;
+}
+
+.icon:active {
+    background-color: greenyellow;
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    width: 30vw !important;
+    margin: auto;
+    z-index: 1
+}
+
+.navli {
+    padding: 10px;
+    margin: 3px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: fantasy;
+    color: green;
+}
+
+.navli:hover {
+    color: lime !important;
+    text-decoration: none !important;
+    border-bottom: 3px solid lime;
+}
+
+.navli:visited {
+    color: green;
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+.active {
+    color: lime !important;
+    text-decoration: none !important;
+    border-bottom: 3px solid lime;
+}
