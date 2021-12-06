@@ -13,7 +13,11 @@ app.get('/api/quote', cors(), (req, res) => {
     const quote = [
         'sample',
         'sample2',
-        'sample3'
+        'sample3',
+        'sample4',
+        'sample5',
+        'sample6',
+        'sample7'
     ]
     
     res.json(quote)

@@ -1,3 +1,42 @@
 .login {
+    display: flex;
+    flex-direction: column;
     text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 80vh;
+    margin: auto;
+    
+    font-family: cursive;
+}
+
+.login--title {
+    font-weight: bold;
+    font-size: 25px;
+    font-family: cursive;
+    margin-bottom: 30px;
+}
+
+.form--group {
+    display: flex;
+    justify-content: space-between;
+    width: 30vw;
+    height: 10vh;
+}
+
+.btn {
+    color: white;
+    background-color: green !important;
+    border: green 1px solid !important;
+    width: 100px !important;
+    height: 40px !important;
+}
+
+.btn:hover {
+    background-color: lime !important;
+}
+
+.btn:active {
+    background-color: greenyellow !important;
 }

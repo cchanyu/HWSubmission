@@ -1,3 +1,30 @@
-.project {
-    text-align: center;
+.saved {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 100vw;
+    height: 80vh;
+    margin: auto;
+}
+
+.saved--list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.saved--box {
+    display: flex;
+    margin: auto;
+
+    height: 37vh;
+    width: 25vw;
+    min-width: 400px;
+    min-height: 300px;
+}
+
+.saved--card {
+    height: 30vh;
+    width: 25vw;
+    min-width: 400px;
+    min-height: 200px;
 }

@@ -35,7 +35,7 @@ class Navbar extends React.Component {
                     <div className="searchbox">
                         <input
                             id="textarea"
-                            className="search"
+                            className="search input"
                             type="text" 
                             onChange={changeText}
                             placeholder="Keyword"

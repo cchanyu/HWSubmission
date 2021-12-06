@@ -31,9 +31,7 @@ class Giphy extends React.Component {
 
         return(
             <div className="giphy">
-                <div className="searched">
-                    Search Result for: {text}
-                </div>
+                <div className="searched">Search Result for: {text}</div>
                 <div className="images">{images}</div>
             </div>
         )
