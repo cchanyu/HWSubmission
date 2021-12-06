@@ -38,7 +38,7 @@ class App extends React.Component {
     e.preventDefault();
     const { text } = this.props;
     const newText = text.toUpperCase();
-    fetch(`http://api.giphy.com/v1/gifs/search?q=${newText}&api_key=${API}`)
+    fetch(`https://api.giphy.com/v1/gifs/search?q=${newText}&api_key=${API}`)
       .then(res3 => res3.json())
       .then(data => this.setState({ url: data.data }))
   }
