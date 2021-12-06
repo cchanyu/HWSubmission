@@ -1,0 +1,21 @@
+.giphy {
+    text-align: center;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+}
+
+.searched {
+
+}
+
+.images {
+    padding: 5px;
+}
+
+.gif {
+    height: 30vh;
+    width: 25vw;
+}

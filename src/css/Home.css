@@ -1,0 +1,29 @@
+.home {
+    width: 100vw;
+    height: auto;
+    margin: auto;
+    text-align: center;
+}
+
+.homebox {
+    display: flex;
+    flex-direction: column;
+    
+    border: grey 5px solid;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    
+    margin: auto;
+    padding: 30px;
+    width: 60vw;
+}
+
+.home--quote {
+    font-size: 18px;
+}
+
+.home--cred {
+    color: grey;
+    font-size: 12px;
+}

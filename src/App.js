@@ -1,67 +1,72 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-import HomeScreen from './components/HomeScreen.js';
-import AboutMe from './components/AboutMe.js';
-import Projects from './components/Projects.js';
-import ContactMe from './components/ContactMe.js';
-import Footer from './components/Footer.js';
+import Home from './components/Home.js';
+import Giphy from './components/Giphy.js';
+import Saved from './components/Saved.js';
+import Login from './components/Login.js';
+import Navbar from './components/Navbar.js';
 
 import Snowfall from 'react-snowfall';
 import './App.css';
 
+const API = 'fpWVBt2icga41IQMyals5bVd6c2eLQKm';
+
 class App extends React.Component {
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.state={
         random: [],
-        quote: []
+        saved: [],
+        text: '',
+        url: []
     }
   }
 
   componentDidMount() {
     fetch('https://animechan.vercel.app/api/random')
-        .then(res => res.json())
-        .then(quote => this.setState({
-            random: quote
-        }))
-    fetch('http://localhost:5000/api/quote', {
-        method: "GET",
-        headers: { 
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        }
-    })
-        .then(res2 => res2.json())
-        .then(quote => this.setState({quote}))
+      .then(res => res.json())
+      .then(quote => this.setState({ random: quote }))
+    fetch('http://localhost:5000/api/quote')
+      .then(res2 => res2.json())
+      .then(saved => this.setState({ saved }))
+  }
+
+  fetchHandler = (e) => {
+    e.preventDefault();
+    const { text } = this.props;
+    fetch(`http://api.giphy.com/v1/gifs/search?q=${text}&api_key=${API}`)
+      .then(res3 => res3.json())
+      .then(data => this.setState({ url: data.data }))
   }
 
   render(){
-    const { random, quote } = this.state;
+    const { random, saved, url } = this.state;
+    const { fetchHandler } = this;
+
     return (
       <div className="App">
           <Snowfall className="snowfall" />
+
           {/* React Route */}
           <Routes>
-            <Route exact path="/" element={
-              <HomeScreen
-                random={random}
-                quote={quote}
-              />}
-            />
-  
-            <Route path="about" element={<AboutMe />}/>
-            
-            <Route path="projects" element={<Projects />}/>
-  
-            <Route path="contact" element={<ContactMe />}/>
+            <Route exact path="/" element={ <Home random={random} />} />
+            <Route path="giphy" element={<Giphy url={url} />}/>
+            <Route path="saved" element={<Saved saved={saved} />}/>
+            <Route path="login" element={<Login />}/>
           </Routes>
   
-          <Footer />
-          <div className="invisFooter" />
+          <Navbar searchup={fetchHandler} />
+          <div className="invisNav" />
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  const {text} = state
+  return text;
+}
+
+export default connect(mapStateToProps)(App);

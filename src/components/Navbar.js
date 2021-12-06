@@ -1,21 +1,68 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { textChange } from '../redux/actions/index.js';
+
+import searchicon from '../svg/search-solid.svg';
 import '../css/Navbar.css'
 
 class Navbar extends React.Component {
-    constructor(){
-        super()
-        this.state={}
+
+    constructor(props) {
+        super(props);
+        this.state = {text: ''};
     }
 
-    render(){
+    changeText = (e) => {
+        this.props.dispatch(textChange(e.target.value))
+    }
+
+    handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            const { searchup } = this.props;
+            searchup(e);
+        }
+    }
+
+    render() {
+        const { changeText, handleKeyDown } = this;
+        const { searchup } = this.props;
+
         return(
-            <div>
-                <div className="timer"></div>
-                Navbar
+            <div className="footer">
+                <div className="footer--under" />
+                <div className="footer--inside">
+                    <div className="searchbox">
+                        <input
+                            id="textarea"
+                            className="search"
+                            type="text" 
+                            onChange={changeText}
+                            placeholder="Keyword"
+                            onKeyDown={handleKeyDown}
+                        />
+                        <img className="search--icon" onClick={searchup} src={searchicon} alt="search"/>
+                    </div>
+                    {/* Navigation */}
+                    <nav className="nav">
+                        <NavLink to="/">Home</NavLink>
+        
+                        <NavLink to="/giphy">Giphy</NavLink>
+        
+                        <NavLink to="/saved">Saved</NavLink>
+                        
+                        <NavLink to="/login">Login</NavLink>
+                    </nav>
+                </div>
             </div>
         )
     }
-
 }
 
-export default Navbar;
+const mapStateToProps = (state) => {
+    const {text} = state
+    return text;
+}
+
+
+export default connect(mapStateToProps)(Navbar);
