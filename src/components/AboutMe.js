@@ -1,20 +1,27 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import '../css/AboutMe.css'
 
 class AboutMe extends React.Component {
-    constructor(){
-        super()
-        this.state={}
+    constructor(props){
+        super(props)
+        this.state={
+            text: ''
+        }
     }
 
     render(){
         return(
             <div>
-                AboutMe
+                {this.props.text}
             </div>
         )
     }
-
 }
 
-export default AboutMe;
+const mapStateToProps = (state) => {
+    const {text} = state
+    return text;
+}
+
+export default connect(mapStateToProps)(AboutMe);

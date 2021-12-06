@@ -1,24 +1,55 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { textChange } from '../redux/actions/index.js';
+
 import '../css/Footer.css'
 
-const Footer = () => {
-    return(
-        <div className="footer">
-            <div className="footer--inside">
-                {/* Navigation */}
-                <nav className="nav">
-                <NavLink to="/">HomeScreen</NavLink>
+class Footer extends React.Component {
 
-                <NavLink to="/about">AboutMe</NavLink>
+    constructor(props) {
+        super(props);
+        this.state = {text: ''};
+    }
 
-                <NavLink to="/projects">Projects</NavLink>
-                
-                <NavLink to="/contact">ContactMe</NavLink>
-                </nav>
+    changeText = (event) => {
+        this.props.dispatch(textChange(event.target.value))
+    }
+
+    render() {
+        const { changeText } = this;
+
+        return(
+            <div className="footer">
+                <div className="footer--under" />
+                <div className="footer--inside">
+                    <input
+                        id="textarea"
+                        className="search"
+                        type="text" 
+                        onChange={changeText}
+                        placeholder="Keyword"
+                    />
+                    {/* Navigation */}
+                    <nav className="nav">
+                        <NavLink to="/">HomeScreen</NavLink>
+        
+                        <NavLink to="/about">AboutMe</NavLink>
+        
+                        <NavLink to="/projects">Projects</NavLink>
+                        
+                        <NavLink to="/contact">ContactMe</NavLink>
+                    </nav>
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
-export default Footer;
+const mapStateToProps = (state) => {
+    const {text} = state
+    return text;
+}
+
+
+export default connect(mapStateToProps)(Footer);

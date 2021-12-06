@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux';
 
-const nameReducer = (state = {name: 'Name'}, action) => {
+const nameReducer = (state = {text: ''}, action) => {
 
     switch (action.type) {
-        case "NAME_CHANGE":
-            return { ...state, name: action.payload };
+        case "TEXT_CHANGE":
+            return { ...state, text: action.payload };
         default:
             return state;
     }
 }
 
-export default combineReducers({name: nameReducer});
+export default combineReducers({text: nameReducer});

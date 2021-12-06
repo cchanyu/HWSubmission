@@ -3,7 +3,7 @@
   
   text-align: center;
   width: auto;
-  height: 70vh;
+  height: 80vh;
   
   background-color: black;
   color: white;
@@ -12,9 +12,9 @@
 }
 
 .snowfall {
-  height: 100vh;
+  z-index: 60;
 }
 
 .invisFooter {
-  height: 30vh;
+  height: 20vh;
 }
