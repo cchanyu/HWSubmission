@@ -41,17 +41,14 @@ class Navbar extends React.Component {
                             placeholder="Keyword"
                             onKeyDown={handleKeyDown}
                         />
-                        <img className="search--icon" onClick={searchup} src={searchicon} alt="search"/>
+                        <img className="search--icon icon" onClick={searchup} src={searchicon} alt="search"/>
                     </div>
                     {/* Navigation */}
                     <nav className="nav">
-                        <NavLink to="/">Home</NavLink>
-        
-                        <NavLink to="/giphy">Giphy</NavLink>
-        
-                        <NavLink to="/saved">Saved</NavLink>
-                        
-                        <NavLink to="/login">Login</NavLink>
+                        <NavLink className="nav--home navli" activeClassName="active" exact to="/">Home</NavLink>
+                        <NavLink className="nav--giphy navli" activeClassName="active" to="/giphy">Giphy</NavLink>
+                        <NavLink className="nav--saved navli" activeClassName="active" to="/saved">Saved</NavLink>
+                        <NavLink className="nav--login navli" activeClassName="active" to="/login">Login</NavLink>
                     </nav>
                 </div>
             </div>

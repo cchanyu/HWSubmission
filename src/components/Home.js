@@ -8,9 +8,7 @@ const Home = (props) => {
         <div className="home">
             <div className="homebox">
                 <div className="home--quote">{random.quote}</div>
-                <div className="home--cred">
-                    {random.anime} - {random.character}
-                </div>
+                <div className="home--cred">{random.anime} - {random.character}</div>
             </div>
         </div>
     )

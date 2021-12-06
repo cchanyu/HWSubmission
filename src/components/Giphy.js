@@ -14,22 +14,27 @@ class Giphy extends React.Component {
         const { url, text } = this.props;
         const toURL = (props) => { window.open(props) }
         const images = url.map((i) => 
-            <img
-                className="gif" 
-                key={i.id} 
-                src={i.images.original.url} 
-                onClick={() => toURL(i.images.original.url)}
-                alt={i}/>
+            <div className="gifbox">
+                <img
+                    className="gif" 
+                    key={i.id} 
+                    src={i.images.original.url} 
+                    onClick={() => toURL(i.images.original.url)}
+                    alt={i.id}
+                />
+                <div className="gif--cred">
+                    <div className="gif--id">ID: {i.id}</div>
+                    <button className="saveit icon">Save ⭐</button>
+                </div>
+            </div>
         )
 
         return(
             <div className="giphy">
                 <div className="searched">
-                    Searched for: {text}
+                    Search Result for: {text}
                 </div>
-                <div className="images">
-                    {images}
-                </div>
+                <div className="images">{images}</div>
             </div>
         )
     }
