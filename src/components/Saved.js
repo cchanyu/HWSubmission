@@ -7,7 +7,6 @@ const Saved = (props) => {
     const toURL = (props) => { window.open(props) }
     const handleDelete = (e) => {
         localStorage.removeItem(e);
-        window.location.reload(false);
     }
 
     return(
