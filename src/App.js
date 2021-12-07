@@ -13,6 +13,7 @@ import Snowfall from 'react-snowfall';
 import './App.css';
 
 const API = 'fpWVBt2icga41IQMyals5bVd6c2eLQKm';
+const savedStorage = window.localStorage;
 
 class App extends React.Component {
   constructor(props){

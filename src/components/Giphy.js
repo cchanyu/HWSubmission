@@ -10,7 +10,12 @@ class Giphy extends React.Component {
         }
     }
 
+    handleSave = (e) => {
+        localStorage.setItem(e, e)
+    }
+
     render(){
+        const { handleSave } = this;
         const { url, text } = this.props;
         const toURL = (props) => { window.open(props) }
         const images = url.map((i) => 
@@ -24,7 +29,7 @@ class Giphy extends React.Component {
                 />
                 <div className="gif--cred">
                     <div className="gif--id">ID: {i.id}</div>
-                    <button className="saveit icon">Save ⭐</button>
+                    <button className="saveit icon" onClick={() => handleSave(i.id)}>Save ⭐</button>
                 </div>
             </div>
         )
