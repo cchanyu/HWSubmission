@@ -10,16 +10,18 @@ class Saved extends React.Component {
         }
       }
 
+    handleDelete = (e) => {
+        localStorage.removeItem(e);
+        this.setState({
+            saveditems: {...localStorage},
+            count: Object.keys({...localStorage}).length
+        })
+    }
+
     render() {
         const { saveditems, count } = this.state;
+        const { handleDelete } = this;
         const toURL = (props) => {window.open(props)}
-        const handleDelete = (e) => {
-            localStorage.removeItem(e);
-            this.setState({
-                saveditems: {...localStorage},
-                count: Object.keys({...localStorage}).length
-            })
-        }
 
         return(
             <div className="saved">

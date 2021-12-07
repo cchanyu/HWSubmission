@@ -65,3 +65,15 @@
     width: 100px !important;
     height: 40px !important;
 }
+
+.savedit {
+    background-color: orange !important;
+    border: orange 1px solid !important;
+}
+
+.beforesearch {
+    color: grey;
+    font-size: 38px;
+    font-family: cursive;
+    margin: auto;
+}
