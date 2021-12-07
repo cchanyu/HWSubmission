@@ -6,11 +6,30 @@ class Giphy extends React.Component {
     constructor(props){
         super(props)
         this.state={
-            text: ''
+            text: '',
+            saveditems: {...localStorage}
         }
     }
 
+    handleSave = (e) => {
+        localStorage.setItem(e, e)
+        this.setState({
+            saveditems: {...localStorage},
+            count: Object.keys({...localStorage}).length
+        })
+    }
+
+    handleDelete = (e) => {
+        localStorage.removeItem(e);
+        this.setState({
+            saveditems: {...localStorage},
+            count: Object.keys({...localStorage}).length
+        })
+    }
+
     render(){
+        const { saveditems } = this.state;
+        const { handleSave, handleDelete } = this;
         const { url, text } = this.props;
         const toURL = (props) => { window.open(props) }
         const images = url.map((i) => 
@@ -24,7 +43,10 @@ class Giphy extends React.Component {
                 />
                 <div className="gif--cred">
                     <div className="gif--id">ID: {i.id}</div>
-                    <button className="saveit icon">Save ⭐</button>
+                    {(Object.keys(saveditems).find(e => e == i.id) ? 
+                        (<button className="saveit icon savedit" onClick={() => handleDelete(i.id)}>Saved</button>) 
+                        : (<button className="saveit icon" onClick={() => handleSave(i.id)}>Save ⭐</button>) 
+                    )}
                 </div>
             </div>
         )
@@ -32,7 +54,12 @@ class Giphy extends React.Component {
         return(
             <div className="giphy">
                 <div className="searched">Search Result for: {text}</div>
-                <div className="images">{images}</div>
+                {(text.length <= 0 ? 
+                    (<div className="beforesearch">Start searching GIF by typing below</div>) 
+                    : ((url.length <= 0 ?
+                        (<div className="beforesearch">No Searched Result</div>) :
+                        (<div className="images">{images}</div>))
+                    ))}
             </div>
         )
     }

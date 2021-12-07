@@ -10,10 +10,14 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    width: 80vw;
+    height: calc(80vh - 28.8px);
+    margin: auto;
 }
 
 .saved--box {
     display: flex;
+    flex-direction: column;
     margin: auto;
 
     height: 37vh;
@@ -27,4 +31,23 @@
     width: 25vw;
     min-width: 400px;
     min-height: 200px;
+}
+
+.saved--card:hover {
+    cursor: pointer;
+}
+
+.del, .del:focus, .del:visited {
+    background-color: red !important;
+    border: 1px red solid !important;
+}
+
+.del:active {
+    background-color: salmon !important;
+    border: 1px salmon solid !important;
+}
+
+.del:hover {
+    background-color: darkred !important;
+    border: 1px darkred solid !important;
 }
