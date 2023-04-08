@@ -12,7 +12,6 @@ import Navbar from './components/Navbar.js';
 import Snowfall from 'react-snowfall';
 import './App.css';
 
-const API = 'fpWVBt2icga41IQMyals5bVd6c2eLQKm';
 const savedStorage = window.localStorage;
 
 class App extends React.Component {
@@ -39,6 +38,7 @@ class App extends React.Component {
     e.preventDefault();
     const { text } = this.props;
     const newText = text.toUpperCase();
+    const API = process.env.REACT_APP_API_KEY;
     fetch(`https://api.giphy.com/v1/gifs/search?q=${newText}&api_key=${API}`)
       .then(res3 => res3.json())
       .then(data => this.setState({ url: data.data }))
