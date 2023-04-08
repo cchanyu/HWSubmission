@@ -43,7 +43,7 @@ class Giphy extends React.Component {
                 />
                 <div className="gif--cred">
                     <div className="gif--id">ID: {i.id}</div>
-                    {(Object.keys(saveditems).find(e => e == i.id) ? 
+                    {(Object.keys(saveditems).find(e => e === i.id) ? 
                         (<button className="saveit icon savedit" onClick={() => handleDelete(i.id)}>Saved</button>) 
                         : (<button className="saveit icon" onClick={() => handleSave(i.id)}>Save ⭐</button>) 
                     )}
