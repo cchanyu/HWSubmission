@@ -25,18 +25,10 @@
     height: 10vh;
 }
 
-.btn {
-    color: white;
-    background-color: green !important;
-    border: green 1px solid !important;
-    width: 100px !important;
-    height: 40px !important;
-}
-
 .btn:hover {
-    background-color: lime !important;
+    
 }
 
 .btn:active {
-    background-color: greenyellow !important;
+    
 }

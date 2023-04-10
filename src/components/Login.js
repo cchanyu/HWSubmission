@@ -1,18 +1,13 @@
 import React, { useState } from 'react';
 import '../css/Login.css'
+import SignUp from './SignUp';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleEmailChange = (event) => {
-        setEmail(event.target.value);
-    }
-
-    const handlePasswordChange = (event) => {
-        setPassword(event.target.value);
-    }
-
+    const handleEmailChange = (event) => { setEmail(event.target.value); }
+    const handlePasswordChange = (event) => { setPassword(event.target.value); }
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log("Login Req: ", email, password);
@@ -44,7 +39,8 @@ const Login = () => {
                         placeholder="Password"
                     />
                 </div>
-                <button type="submit" className="btn icon" onClick={handleSubmit}>Sign in</button>
+                <button type="submit" className="btn icon mx-4 btn-primary" onClick={() => <SignUp />}>Sign Up</button>
+                <button type="submit" className="btn icon btn-success" onClick={handleSubmit}>Sign in</button>
             </form>
         </div>
     );

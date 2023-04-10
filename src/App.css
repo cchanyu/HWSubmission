@@ -18,3 +18,12 @@
 .invisNav {
   height: 20vh;
 }
+
+.village {
+  position: absolute;
+  background-image: url(./svg/holiday-village.png);
+  height: 350px;
+  width: 100%;
+  bottom: 0;
+  z-index: 1;
+}

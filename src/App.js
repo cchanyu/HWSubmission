@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { server } from './redux/configs/index';
+import { server } from './redux/configs';
 
 import Home from './components/Home.js';
 import Giphy from './components/Giphy.js';
@@ -29,7 +29,8 @@ const App = () => {
 
   const fetchHandler = (e) => {
     e.preventDefault();
-    const newText = text.toUpperCase();
+    if (typeof text.text !== 'string') { console.log('Invalid input'); return; }
+    const newText = text.text.toUpperCase();
     const API = process.env.REACT_APP_API_KEY;
     fetch(`https://api.giphy.com/v1/gifs/search?q=${newText}&api_key=${API}`)
       .then(res3 => res3.json())
@@ -50,6 +51,7 @@ const App = () => {
         </Routes>
 
         <Navbar searchup={fetchHandler} />
+        <div className="village"></div>
         <div className="invisNav" />
     </div>
   );

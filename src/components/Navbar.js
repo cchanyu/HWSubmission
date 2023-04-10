@@ -1,16 +1,18 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom'
-import { connect } from 'react-redux'
-import { textChange } from '../redux/actions/index.js';
+import { connect, useDispatch } from 'react-redux';
+import { setText } from '../redux/actions';
 
 import searchicon from '../svg/search-solid.svg';
 import '../css/Navbar.css'
 
-const Navbar = ({dispatch, searchup}) => {
+const Navbar = ({searchup}) => {
 
-    const changeText = (e) => {
-        dispatch(textChange(e.target.value))
-    }
+    const dispatch = useDispatch();
+
+    const handleTextChange = (event) => {
+        dispatch(setText(event.target.value));
+    };
 
     const handleKeyDown = (e) => {
         if (e.key === 'Enter') {
@@ -27,7 +29,7 @@ const Navbar = ({dispatch, searchup}) => {
                         id="textarea"
                         className="search input"
                         type="text" 
-                        onChange={changeText}
+                        onChange={handleTextChange}
                         placeholder="Keyword"
                         onKeyDown={handleKeyDown}
                     />
