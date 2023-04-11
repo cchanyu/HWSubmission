@@ -1,13 +1,31 @@
+:root {
+  --yellow: linear-gradient(180deg, #F8D49A -146.42%, #FAD79D -46.42%);
+  --red: red;
+  --orange: #fca61f;
+  --black: #242d49;
+  --gray: grey;
+  --purple: linear-gradient(180deg, #BB67FF 0%, #C484F3 100%);
+  --pink: #FF919D;
+  --blue: #00a2ffd3;
+  --blue-shade: #00a2ff83;
+  --react-green: #198754;
+  --green: rgb(0, 128, 0);
+  --green-shade: rgba(0, 128, 0, 0.534);
+  --green-highlight: rgb(0, 177, 0);
+  --white: whitesmoke;
+  --glass: rgba(255, 255, 255, 0.54);
+  --boxShadow: 0px 19px 60px rgb(0 0 0 / 8%);
+  --smboxShadow: -79px 51px 60px rgba(0, 0, 0, 0.08);
+  --activeItem: #f799a354;
+}
+
 .App {
   display: flex;
-  
   text-align: center;
   width: auto;
-  height: 80vh;
-  
+  height: 85vh;
   background-color: black;
-  color: white;
-
+  color: var(--white);
   z-index: 50;
 }
 
@@ -16,13 +34,13 @@
 }
 
 .invisNav {
-  height: 20vh;
+  height: 15vh;
 }
 
 .village {
   position: absolute;
   background-image: url(./svg/holiday-village.png);
-  height: 350px;
+  height: 25%;
   width: 100%;
   bottom: 0;
   z-index: 1;

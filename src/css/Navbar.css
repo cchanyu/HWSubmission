@@ -3,7 +3,7 @@
     position: absolute;
     bottom: 0;
     width: 100vw;
-    height: 20vh;
+    height: 15vh;
     overflow: hidden;
     z-index: 2;
 }
@@ -11,7 +11,7 @@
 .footer--under {
     width: 150%;
     height: 150%;
-    background-color: white;
+    background-color: var(--white);
     border-radius: 50% 50% 0 0;
     left: -25%;
     right: 0;
@@ -29,6 +29,14 @@
     z-index: 1;
 }
 
+.footer-user {
+    color: black;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    z-index: 1;
+}
+
 .searchbox {
     display: flex;
     flex-direction: row;
@@ -39,7 +47,7 @@
 .input {
     width: 20vw !important;
     height: 5vh !important;
-    background-color: white !important;
+    background-color: var(--white) !important;
     margin-bottom: auto !important;
     margin-right: 5px;
     z-index: 1
@@ -48,24 +56,24 @@
 .icon {
     height: 5vh;
     width: 50px;
-    background-color: green;
+    background-color: var(--green);
     padding: 10px;
     border-radius: 5px;
     z-index: 1;
 }
 
 .icon:visited, .icon:focus {
-    color: white;
-    background-color: green;
-    border: green 1px solid;
+    color: var(--white);
+    background-color: var(--green);
+    border: var(--green) 1px solid;
 }
 
 .icon:hover {
-    background-color: lime;
+    background-color: var(--green-highlight);
 }
 
 .icon:active {
-    background-color: greenyellow;
+    background-color: var(--green-highlight);
 }
 
 .nav {
@@ -82,19 +90,18 @@
     padding: 10px;
     margin: 3px;
     font-size: 20px;
-    font-weight: bold;
     font-family: fantasy;
-    color: green;
+    color: var(--green);
 }
 
 .navli:hover {
-    color: lime !important;
+    color: var(--green-highlight) !important;
     text-decoration: none !important;
-    border-bottom: 3px solid lime;
+    border-bottom: 3px solid var(--green-highlight);
 }
 
 .navli:visited {
-    color: green;
+    color: var(--green);
     text-decoration: none;
 }
 
@@ -103,7 +110,14 @@ a:active {
 }
 
 .active {
-    color: lime !important;
+    color: var(--green-highlight) !important;
     text-decoration: none !important;
-    border-bottom: 3px solid lime;
+    border-bottom: 3px solid var(--green-highlight);
+}
+
+.footer-signout {
+    border: none;
+    margin: 0;
+    padding: 0;
+    text-decoration: underline;
 }

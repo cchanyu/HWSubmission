@@ -1,11 +1,11 @@
 .giphy {
     text-align: center;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
     width: 100vw;
-    height: 80vh;
+    height: 78vh;
 }
 
 .searched {
@@ -55,25 +55,25 @@
 
 .gif--id {
     margin-top: 10px;
-    color: grey;
+    color: var(--gray);
     font-size: 12px;
 }
 
 .saveit {
-    color: white;
-    background-color: green;
-    border: green 1px solid;
+    color: var(--whitesmoke);
+    background-color: var(--green);
+    border: var(--green) 1px solid;
     width: 100px !important;
     height: 40px !important;
 }
 
 .savedit {
-    background-color: orange !important;
-    border: orange 1px solid !important;
+    background-color: var(--orange) !important;
+    border: var(--orange) 1px solid !important;
 }
 
 .beforesearch {
-    color: grey;
+    color: var(--gray);
     font-size: 38px;
     font-family: cursive;
     margin: auto;

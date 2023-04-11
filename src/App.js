@@ -8,7 +8,7 @@ import Giphy from './components/Giphy.js';
 import Saved from './components/Saved.js';
 import Login from './components/Login.js';
 import Navbar from './components/Navbar.js';
-
+import SignUp from './components/SignUp';
 import Snowfall from 'react-snowfall';
 import './App.css';
 
@@ -48,6 +48,7 @@ const App = () => {
           <Route path="HWSubmission/giphy" element={ <Giphy url={url} /> }/>
           <Route path="HWSubmission/saved" element={ <Saved saved={saved} /> }/>
           <Route path="HWSubmission/login" element={ <Login /> }/>
+          <Route path="HWSubmission/signup" element={ <SignUp /> }/>
         </Routes>
 
         <Navbar searchup={fetchHandler} />

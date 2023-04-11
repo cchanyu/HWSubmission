@@ -1,5 +1,6 @@
 const initialState = {
     text: '',
+    isSignedIn: false,
   };
   
   const textReducer = (state = initialState, action) => {
@@ -10,5 +11,16 @@ const initialState = {
         return state;
     }
   };
-  
-  export default textReducer;
+
+  const authReducer = (state = initialState, action) => {
+    switch (action.type) {
+      case 'SET_SIGN_IN_STATUS':
+        return { ...state, isSignedIn: action.payload };
+      case 'SIGN_OUT':
+        return { ...state, isSignedIn: false }; // set isSignedIn to false on sign-out
+      default:
+        return state;
+    }
+  };
+
+  export { textReducer, authReducer };

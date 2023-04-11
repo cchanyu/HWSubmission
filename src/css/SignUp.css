@@ -1,0 +1,18 @@
+.signup {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 85vh;
+    margin: auto;
+    
+    font-family: cursive;
+}
+
+.signup-container {
+    border-radius: 2rem;
+    background-color: var(--glass);
+    padding: 3rem;
+}

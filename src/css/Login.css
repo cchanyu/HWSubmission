@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 80vh;
+    height: 85vh;
     margin: auto;
     
     font-family: cursive;
@@ -25,10 +25,24 @@
     height: 10vh;
 }
 
-.btn:hover {
-    
+.signup-btn {
+    -webkit-appearance: none;
+    display: inline-block;
+    text-decoration: underline;
+    font-weight: bold;
+    font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1;
+    border-radius: 4px;
+    color: var(--white);
 }
 
-.btn:active {
-    
+.signup-btn:hover, .signup-btn:active, .signup-btn:focus {
+    color: var(--green-highlight);
+}
+
+.login-container {
+    border-radius: 2rem;
+    background-color: var(--glass);
+    padding: 3rem;
 }
