@@ -11,11 +11,13 @@ import Navbar from './components/Navbar.js';
 import SignUp from './components/SignUp';
 import Snowfall from 'react-snowfall';
 import './App.css';
+import UserPanel from './components/UserPanel';
 
 const App = () => {
   const [random, setRandom] = useState([]);
   const [saved, setSaved] = useState([]);
   const [url, setUrl] = useState([]);
+  const isSignedIn = useSelector(state => state.auth.isSignedIn); 
   const text = useSelector(state => state.text);
 
   useEffect(() => {
@@ -47,7 +49,7 @@ const App = () => {
           <Route path="HWSubmission/home" element={ <Home random={random} /> } />
           <Route path="HWSubmission/giphy" element={ <Giphy url={url} /> }/>
           <Route path="HWSubmission/saved" element={ <Saved saved={saved} /> }/>
-          <Route path="HWSubmission/login" element={ <Login /> }/>
+          <Route path="HWSubmission/login" element={ isSignedIn ? <UserPanel /> : <Login /> }/>
           <Route path="HWSubmission/signup" element={ <SignUp /> }/>
         </Routes>
 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { createUser } from '../server/firebase.config';
+import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
+import { auth } from '../server/firebase.config';
 import "../css/SignUp.css"
 
 const SignUp = () => {
@@ -26,8 +27,10 @@ const SignUp = () => {
     }
 
     try {
-      await createUser(email, password);
-      console.log('Sign up successful!');
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      // User registration successful, email verification sent
+      await sendEmailVerification(userCredential.user);
+      console.log('Registration successful, email verification sent.');
       setEmail('');
       setPassword('');
       navigate('/HWSubmission/login');

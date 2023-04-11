@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { signInUser } from '../server/firebase.config';
+import { auth, signInUser } from '../server/firebase.config';
 import '../css/Login.css';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [verified, setVerified] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -16,13 +17,10 @@ const Login = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    // Validation checks
     if (!email || !password) {
       setError('Please fill in all fields.');
       return;
     }
-
     if (!validateEmail(email)) {
       setError('Please enter a valid email address.');
       return;
@@ -30,15 +28,34 @@ const Login = () => {
 
     try {
       await signInUser(email, password);
-      console.log('Sign in successful!');
-      localStorage.setItem("email", email);
-      dispatch({ type: 'SET_SIGN_IN_STATUS', payload: true });
-      setEmail('');
-      setPassword('');
-      navigate('/HWSubmission/home');
     } catch (error) {
       console.error('Error signing in:', error);
       setError('Error signing in. Please try again.');
+    }
+    
+    checkEmailVerificationStatus();
+  }
+
+  const checkEmailVerificationStatus = () => {
+    console.log(auth)
+    const user = auth.currentUser;
+    if (user && !user.emailVerified) {
+      console.log('Email not verified.');
+      setError('Email has not been verified, please check.');
+    } else if (user && user.emailVerified) {
+      console.log('Email verified.');
+
+      setVerified(true)
+      if (verified) {
+        console.log('Sign in successful!');
+        localStorage.setItem("email", email);
+        dispatch({ type: 'SET_SIGN_IN_STATUS', payload: true });
+        setEmail('');
+        setPassword('');
+        navigate('/HWSubmission/home');
+      }
+    } else {
+      console.log('No user currently signed in.');
     }
   }
 
