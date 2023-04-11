@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/HWSubmission/static/css/main.04a458a1.chunk.css",
-    "main.js": "/HWSubmission/static/js/main.d352fcbd.chunk.js",
-    "main.js.map": "/HWSubmission/static/js/main.d352fcbd.chunk.js.map",
+    "main.css": "/HWSubmission/static/css/main.2a5c9994.chunk.css",
+    "main.js": "/HWSubmission/static/js/main.b3527a62.chunk.js",
+    "main.js.map": "/HWSubmission/static/js/main.b3527a62.chunk.js.map",
     "runtime-main.js": "/HWSubmission/static/js/runtime-main.4ddf4e19.js",
     "runtime-main.js.map": "/HWSubmission/static/js/runtime-main.4ddf4e19.js.map",
-    "static/js/2.7951ad02.chunk.js": "/HWSubmission/static/js/2.7951ad02.chunk.js",
-    "static/js/2.7951ad02.chunk.js.map": "/HWSubmission/static/js/2.7951ad02.chunk.js.map",
+    "static/js/2.7d03a8de.chunk.js": "/HWSubmission/static/js/2.7d03a8de.chunk.js",
+    "static/js/2.7d03a8de.chunk.js.map": "/HWSubmission/static/js/2.7d03a8de.chunk.js.map",
     "index.html": "/HWSubmission/index.html",
-    "static/css/main.04a458a1.chunk.css.map": "/HWSubmission/static/css/main.04a458a1.chunk.css.map",
-    "static/js/2.7951ad02.chunk.js.LICENSE.txt": "/HWSubmission/static/js/2.7951ad02.chunk.js.LICENSE.txt",
+    "static/css/main.2a5c9994.chunk.css.map": "/HWSubmission/static/css/main.2a5c9994.chunk.css.map",
+    "static/js/2.7d03a8de.chunk.js.LICENSE.txt": "/HWSubmission/static/js/2.7d03a8de.chunk.js.LICENSE.txt",
     "static/media/App.css": "/HWSubmission/static/media/holiday-village.09dde381.png",
     "static/media/search-solid.cc51b702.svg": "/HWSubmission/static/media/search-solid.cc51b702.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.4ddf4e19.js",
-    "static/js/2.7951ad02.chunk.js",
-    "static/css/main.04a458a1.chunk.css",
-    "static/js/main.d352fcbd.chunk.js"
+    "static/js/2.7d03a8de.chunk.js",
+    "static/css/main.2a5c9994.chunk.css",
+    "static/js/main.b3527a62.chunk.js"
   ]
 }
