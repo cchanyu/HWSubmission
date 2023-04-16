@@ -21,11 +21,9 @@ export const auth = getAuth(app);
 export const provider = new GoogleAuthProvider();
 
 export const createUser = async (email, password) => {
-    const auth = getAuth();
     return createUserWithEmailAndPassword(auth, email, password);
 };
 
 export const signInUser = async (email, password) => {
-    const auth = getAuth();
     return signInWithEmailAndPassword(auth, email, password);
 };

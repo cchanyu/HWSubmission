@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { auth, signInUser } from '../server/firebase.config';
 import '../css/Login.css';
@@ -10,7 +9,6 @@ const Login = () => {
   const [error, setError] = useState('');
   const [verified, setVerified] = useState(false);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const handleEmailChange = (event) => { setEmail(event.target.value); }
   const handlePasswordChange = (event) => { setPassword(event.target.value); }
@@ -32,7 +30,7 @@ const Login = () => {
       console.error('Error signing in:', error);
       setError('Error signing in. Please try again.');
     }
-    
+
     checkEmailVerificationStatus();
   }
 
@@ -48,8 +46,8 @@ const Login = () => {
       setVerified(true)
       if (verified) {
         console.log('Sign in successful!');
-        localStorage.setItem("email", email);
-        dispatch({ type: 'SET_SIGN_IN_STATUS', payload: true });
+        localStorage.setItem("email", user.email);
+        localStorage.setItem("isLogged", true);
         setEmail('');
         setPassword('');
         navigate('/HWSubmission/home');
@@ -64,6 +62,21 @@ const Login = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   }
+
+  // const handleForgotPassword = async (email) => {
+  //   try {
+  //     // Send a password reset email to the user's email address
+  //     await auth.sendPasswordResetEmail(email);
+  //     console.log('Password reset email sent successfully!');
+  //     // You can show a success message to the user or redirect them to a confirmation page
+  //   } catch (error) {
+  //     // Handle password reset error
+  //     console.error('Error sending password reset email:', error);
+  //     // You can show an error message to the user or handle the error in any other way
+  //   }
+  // };
+  // // Call the handleForgotPassword function with the email entered by the user
+  // // handleForgotPassword('user@example.com');
 
   return (
     <div className="login">

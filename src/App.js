@@ -17,7 +17,7 @@ const App = () => {
   const [random, setRandom] = useState([]);
   const [saved, setSaved] = useState([]);
   const [url, setUrl] = useState([]);
-  const isSignedIn = useSelector(state => state.auth.isSignedIn); 
+  const [ isLogged ] = useState(JSON.parse(localStorage.getItem('isLogged')));
   const text = useSelector(state => state.text);
 
   useEffect(() => {
@@ -47,9 +47,9 @@ const App = () => {
         <Routes>
           <Route exact path="HWSubmission/" element={ <Home random={random} /> } />
           <Route path="HWSubmission/home" element={ <Home random={random} /> } />
-          <Route path="HWSubmission/giphy" element={ <Giphy url={url} /> }/>
+          <Route path="HWSubmission/giphy" element={ <Giphy url={url} text={text}/> }/>
           <Route path="HWSubmission/saved" element={ <Saved saved={saved} /> }/>
-          <Route path="HWSubmission/login" element={ isSignedIn ? <UserPanel /> : <Login /> }/>
+          <Route path="HWSubmission/login" element={ isLogged ? <UserPanel /> : <Login /> }/>
           <Route path="HWSubmission/signup" element={ <SignUp /> }/>
         </Routes>
 
